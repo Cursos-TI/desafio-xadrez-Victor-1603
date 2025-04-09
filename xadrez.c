@@ -15,23 +15,36 @@
 
 // Implementação de Movimentação da Rainha
 // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+#include <stdio.h>
+
+    // Nivel novato - Implementação de movimento das peças
 int main() {
     int torre = 1, bispo = 1, rainha = 1;
 
-    for (bispo = 1; bispo <= 5; bispo++)
-    {
+    for (bispo = 1; bispo <= 5; bispo++) {
         printf("O bispo se moveu para a diagonal para frente esquerda\n");
     }
-    
-    for (torre = 1; torre <= 5; torre++)
-    {
+
+    for (torre = 1; torre <= 5; torre++) {
         printf("A torre se moveu para a direita\n");
     }
-    for (rainha = 1; rainha <= 8; rainha++)
-    {
+
+    for (rainha = 1; rainha <= 8; rainha++) {
         printf("A rainha se moveu para a esquerda\n");
     }
-    
+
+    // Nível Aventureiro - Movimentação do Cavalo
+    for (int horizontal = 1; horizontal <= 2; horizontal++) {
+        for (int vertical = 1; vertical <= 2; vertical++) {
+            if (horizontal != vertical) { // Garante o movimento em L (2x1 ou 1x2)
+                printf("O cavalo se moveu em L: %d horizontal e %d vertical\n", horizontal, vertical);
+            }
+        }
+    }
+
+    return 0;
+}
+
 
     // Nível Aventureiro - Movimentação do Cavalo
     // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
