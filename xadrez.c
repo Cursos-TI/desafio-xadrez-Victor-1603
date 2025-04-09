@@ -17,29 +17,73 @@
 // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
 #include <stdio.h>
 
-    // Nivel novato - Implementação de movimento das peças
-int main() {
-    int torre = 1, bispo = 1, rainha = 1;
-
-    for (bispo = 1; bispo <= 5; bispo++) {
-        printf("O bispo se moveu para a diagonal para frente esquerda\n");
+void MoverBispo (int casas)
+{
+    if (casas > 0)
+    {
+        printf("diagonal direita para cima\n");
+        MoverBispo(casas - 1);
     }
+    
+}
 
-    for (torre = 1; torre <= 5; torre++) {
-        printf("A torre se moveu para a direita\n");
+void MoverTorre (int casas)
+{
+    if (casas > 0)
+    {
+        printf("Direita\n");
+        MoverTorre(casas - 1);
     }
+    
+}
 
-    for (rainha = 1; rainha <= 8; rainha++) {
-        printf("A rainha se moveu para a esquerda\n");
+void MoverRainha (int casas)
+{
+    if (casas > 0)
+    {
+        printf("esquerda\n");
+        MoverRainha(casas - 1);
     }
+    
+}
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    for (int horizontal = 1; horizontal <= 2; horizontal++) {
-        for (int vertical = 1; vertical <= 2; vertical++) {
-            if (horizontal != vertical) { // Garante o movimento em L (2x1 ou 1x2)
-                printf("O cavalo se moveu em L: %d horizontal e %d vertical\n", horizontal, vertical);
-            }
-        }
+void MoverCavalo (int casas)
+{
+    if (casas > 0)
+    {
+        printf("L para cima à direira\n");
+        MoverCavalo(casas - 1);
+    }
+    
+}
+
+int main(int argc, char const *argv[])
+{
+    int opcao;
+
+    printf("Escolha qual peça você deseja mover:\n");
+    printf("1. Bisco\n");
+    printf("2. Torre\n");
+    printf("3. Rainha\n");
+    printf("4. Cavalo\n");
+    scanf("%d", &opcao);
+
+    switch (opcao) {
+        case 1:
+            MoverBispo(5);
+            break;
+        case 2:
+            MoverTorre(5);
+            break;
+        case 3:
+            MoverRainha(8);
+            break;
+        case 4:
+            MoverCavalo(1);
+            break;
+        default:
+            printf("Opção inválida.\n");
+            break;
     }
 
     return 0;
